@@ -1,0 +1,20 @@
+type Query{
+  firstQuery: String
+  sayHello(name: String): String
+  readFromJson(name: FullNameBean): String
+  getBookById(id: String): Book
+  getAllBooks: [Book]
+}
+
+type Book{
+ id: String
+ name: String
+ isbn: String
+ rack: String
+ author: String
+}
+
+input FullNameBean{
+  firstName: String!
+  lastName: String!
+}

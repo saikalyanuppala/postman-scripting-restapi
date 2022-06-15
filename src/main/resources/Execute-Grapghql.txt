@@ -1,0 +1,29 @@
+Execute grapghql from postman
+
+Post: http://localhost:8181/graphql
+
+in body select grapghql 
+under  Query text area write below query
+
+query{
+    firstQuery
+    sayHello(name:"sai sandra")
+    readFromJson(name:{
+        firstName:"sai kalyan",
+        lastName:"uppala"
+    })
+    getBookById(id:"def456"){
+        name
+        isbn
+        rack
+        author
+    }
+    getAllBooks{
+       id
+       name
+       author
+       isbn
+       rack
+    }
+    
+}
