@@ -18,3 +18,14 @@ input FullNameBean{
   firstName: String!
   lastName: String!
 }
+
+type Mutation{
+  createBook(request: BookRequest) : Book
+}
+
+input BookRequest{
+  name: String!
+  isbn: String!
+  rack: String!
+  author: String!
+}

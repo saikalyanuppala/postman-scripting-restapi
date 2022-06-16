@@ -23,16 +23,17 @@ public class Query implements GraphQLQueryResolver {
 	public String sayHello(String name) {
 		return "Hello " + name + " Welcome to grapghQL";
 	}
-	
+
 	public String readFromJson(FullNameBean name) {
-		return name.getFirstName()+" "+name.getLastName();
+		return name.getFirstName() + " " + name.getLastName();
 	}
 
 	public Book getBookById(String id) {
 		return bookService.findById(id);
 	}
-	
-	public List<Book> getAllBooks(){
+
+	public List<Book> getAllBooks() {
 		return bookService.findAll();
 	}
+
 }

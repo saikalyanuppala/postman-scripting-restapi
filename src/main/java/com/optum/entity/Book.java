@@ -7,6 +7,17 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 @Entity
 @Table(name = "book")
 public class Book {
@@ -24,69 +35,12 @@ public class Book {
 	@NotEmpty(message = "author can't be empty")
 	private String author;
 
-	public Book() {
-	}
-
 	public Book(String name, String isbn, String rack, String author) {
 		super();
 		this.name = name;
 		this.isbn = isbn;
 		this.rack = rack;
 		this.author = author;
-	}
-
-	public Book(String id, String name, String isbn, String rack, String author) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.isbn = isbn;
-		this.rack = rack;
-		this.author = author;
-	}
-
-	public String getId() {
-		return id;
-	}
-
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getIsbn() {
-		return isbn;
-	}
-
-	public void setIsbn(String isbn) {
-		this.isbn = isbn;
-	}
-
-	public String getRack() {
-		return rack;
-	}
-
-	public void setRack(String rack) {
-		this.rack = rack;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	@Override
-	public String toString() {
-		return "Book [id=" + id + ", name=" + name + ", isbn=" + isbn + ", rack=" + rack + ", author=" + author + "]";
 	}
 
 }
