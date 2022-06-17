@@ -3,6 +3,8 @@ package com.optum.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
@@ -48,5 +50,10 @@ public class BookService {
 	public List<Book> sortBooks(String field, String order) {
 		Sort sort = Sort.by(Direction.fromString(order), field);
 		return bookRepository.findAll(sort);
+	}
+
+	public List<Book> pagingBooks(int pageNo, int size) {
+		Pageable page = PageRequest.of(pageNo, size);
+		return bookRepository.findAll(page).getContent();
 	}
 }

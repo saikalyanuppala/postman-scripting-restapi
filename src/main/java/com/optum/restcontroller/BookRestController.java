@@ -71,4 +71,9 @@ public class BookRestController {
 	public List<Book> getSortedBooks(@RequestParam("field") String field, @RequestParam("order") String order) {
 		return bookService.sortBooks(field, order);
 	}
+
+	@GetMapping("/books/paging")
+	public List<Book> getPagingBooks(@RequestParam("pageno") int pageno, @RequestParam("size") int size) {
+		return bookService.pagingBooks(pageno, size);
+	}
 }
