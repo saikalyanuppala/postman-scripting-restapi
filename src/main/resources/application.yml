@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: REST API FOR POSTMAN
+
+  datasource:
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+    url: jdbc:h2:mem:postman
+
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+
+  h2:
+    console:
+      enabled: true
+      path: /h2console
+      settings:
+        web-allowed: true
+        trace: false
+
+server:
+  port: 8181
