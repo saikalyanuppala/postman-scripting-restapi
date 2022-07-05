@@ -9,7 +9,7 @@ import com.optum.interceptors.BookHandlerInterceptor;
 import com.optum.interceptors.BookHandlerInterceptor2;
 
 @Component
-public class WebMVCConfig implements WebMvcConfigurer {
+public class WebAppConfiguration implements WebMvcConfigurer {
 
 	@Autowired
 	private BookHandlerInterceptor interceptor;
@@ -22,5 +22,4 @@ public class WebMVCConfig implements WebMvcConfigurer {
 		registry.addInterceptor(interceptor);
 		registry.addInterceptor(interceptor2);
 	}
-
 }
