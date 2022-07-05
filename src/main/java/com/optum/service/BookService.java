@@ -3,6 +3,9 @@ package com.optum.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.Caching;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
@@ -16,14 +19,16 @@ import com.optum.repository.BookRepository;
 
 @Service
 public class BookService {
-//63055 47515 cook kumari
+
 	@Autowired
 	BookRepository bookRepository;
 
+	@Cacheable("books")
 	public List<Book> findAll() {
 		return bookRepository.findAll();
 	}
 
+	@Cacheable(value = "book", key = "#p0")
 	public Book findById(String id) {
 		return bookRepository.findById(id).orElseThrow(() -> new BookNotFoundException("Book Not found with id " + id));
 	}
@@ -32,6 +37,7 @@ public class BookService {
 		return bookRepository.findByAuthor(author);
 	}
 
+	@CacheEvict(value = "books", allEntries = true)
 	public Book save(Book book) {
 		Book book1 = bookRepository.findByName(book.getName());
 		if (book1 != null)
@@ -41,6 +47,7 @@ public class BookService {
 
 	}
 
+	@Caching(evict = { @CacheEvict(value = "books", allEntries = true), @CacheEvict(value = "book", key = "#p0") })
 	public void delete(String id) {
 		Book book = bookRepository.findById(id).orElseThrow(
 				() -> new BookNotFoundException("Book not found with id " + id + " cannot delete the book"));
