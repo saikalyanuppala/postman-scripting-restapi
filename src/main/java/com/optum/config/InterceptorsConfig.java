@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import com.optum.interceptors.BookHandlerInterceptor;
 
 @Configuration
-public class WebAppConfig implements WebMvcConfigurer {
+public class InterceptorsConfig implements WebMvcConfigurer {
 
 	@Autowired
 	private BookHandlerInterceptor interceptor;
