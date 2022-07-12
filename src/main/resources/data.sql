@@ -12,3 +12,7 @@ insert into book values('ggg777','graphql','ggg','777','durga');
 insert into book values('hhh888','javascript','hhh','888','chandi');
 insert into book values('iii999','angular','iii','999','shiva');
 insert into book values('667kjh','spring security','kjh','667','narayana');
+
+
+insert into person(fullName,age) values('sai kalyan:uppala',33);
+insert into person(fullName,age) values('sai sandra:shiva',75);
