@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.optum.entity.Person;
 
 @Repository
-public interface PersonRepository extends JpaRepository<Person, Integer>{
+public interface PersonRepository extends JpaRepository<Person, Integer> {
 
+	Person findByAge(int age);
 }

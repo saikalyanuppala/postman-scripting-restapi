@@ -18,4 +18,8 @@ public class PersonService {
 		return personRepository.findAll();
 	}
 
+	public Person getPersonByAge(int age) {
+		return personRepository.findByAge(age);
+	}
+
 }
